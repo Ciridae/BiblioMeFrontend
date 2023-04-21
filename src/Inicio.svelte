@@ -1,1 +1,1 @@
-inicio
+<h1>Bienvenido a BiblioMe</h1>
