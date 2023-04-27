@@ -5,8 +5,9 @@
   import Contenido from "./Contenido.svelte";
 
   const URL = {
-    libros: "https://libreriabackend.herokuapp.com/api/libros/",
-    autores: "https://libreriabackend.herokuapp.com/api/autores/",
+    libros: "http://localhost:4343/libros",
+    autores: "http://localhost:4343/autores",
+    usuarios: "http://localhost:4343/usuarios"
   };
   setContext("URL", URL);
 </script>
