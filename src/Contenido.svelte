@@ -5,8 +5,14 @@
     import Libros from "./Libros.svelte";
 </script>
 
-<main class="container">
+<main>
     <Route path="/" component="{Inicio}"></Route>
     <Route path="/libros" component="{Libros}"></Route>
     <Route path="/autores" component="{Autores}"></Route>
 </main>
+
+<style>
+    main {
+        min-height: calc(100vh - 89px - 200px);
+    }
+</style>

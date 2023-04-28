@@ -3,8 +3,98 @@
   padding: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
+  background-color: #f9f7f4;
   font-family: 'Lora', Serif;
+}
+
+.libros {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  width: 65%;
+  margin: auto;
+}
+
+@media (max-width: 1068px) {
+
+  .libros {
+      display: block;
+      width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contenedor-libro {
+      grid-template-columns: 1fr !important; 
+  }
+
+  .datos-libro {
+      margin-top: 25px;
+  }
+
+  .contenedor-autor {
+      grid-template-columns: 1fr !important; 
+  }
+
+  .contenedor-datos-autor {
+      margin-top: 25px;
+  }
+
+  .contenedor-explorar video {
+      width: 90%;
+  }
+}
+
+.libro {
+  display: flex;
+  padding-top: 30px;
+}
+
+.datos-libro {
+  padding-left: 20px;
+}
+
+.datos-libro>h1 {
+  font-size: 1.8em;
+  padding-bottom: 10px;
+  font-weight: 100;
+}
+
+.datos-libro>h3 {
+  font-weight: 100;
+}
+
+.portada {
+  width: 160px;
+  height: 240px;
+  object-fit: contain;
+  box-shadow: 5px 5px 10px grey;
+  transition-duration: 0.5s;
+}
+
+.portada:hover {
+  transform: scale(1.05);
+}
+
+.enlace {
+  text-decoration: none;
+  color: black;
+}
+
+.enlace:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.text-brown {
+  color: #32362d !important;
+  font-size: 22px;
 }

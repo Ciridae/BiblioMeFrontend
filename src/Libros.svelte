@@ -22,3 +22,22 @@
         RegExp(patron, "i").test(libro.titulo)
     );
 </script>
+
+<div class="libros">
+    <section class="libro">
+        <div>
+            <img class="portada" src="images/portadas/amanecer_rojo.jpg" alt="Amanecer rojo">
+        </div>
+        <div class="datos-libro">
+            <h1><a class="enlace" href="libro.html">Amanecer Rojo</a></h1>
+            <h3><a class="enlace h4" href="autor_pierce.html">Pierce Brown</a></h3>
+            <span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+            </span>
+        </div>
+    </section>
+</div>

@@ -3,6 +3,7 @@
   import { Router } from "svelte-routing";
   import Nav from "./Nav.svelte";
   import Contenido from "./Contenido.svelte";
+  import Footer from "./Footer.svelte";
 
   const URL = {
     libros: "http://localhost:4343/libros",
@@ -15,4 +16,5 @@
 <Router>
   <Nav />
   <Contenido />
+  <Footer />
 </Router>
