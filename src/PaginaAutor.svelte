@@ -28,7 +28,7 @@
 <div class="contenedor-autor">
     <section class="imagen-autor">
         <div class="contenedor-imagen-autor">
-            <img src="" alt="Pierce Brown" />
+            <img class="imagen-autor" src="../{autor.img}" alt="Pierce Brown" />
         </div>
     </section>
     <section class="contenedor-datos-autor">
