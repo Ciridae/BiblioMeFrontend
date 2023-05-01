@@ -79,6 +79,11 @@ body::-webkit-scrollbar {
   font-weight: 100;
 }
 
+.boton-leer {
+  width: 100%;
+  text-align: center;
+}
+
 .portada {
   width: 160px;
   height: 240px;
@@ -89,6 +94,11 @@ body::-webkit-scrollbar {
 
 .portada:hover {
   transform: scale(1.05);
+}
+
+.portada-pagina-libro {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .enlace {
@@ -173,13 +183,16 @@ body::-webkit-scrollbar {
   justify-content: center;
 }
 
-.imagen-autor {
-  max-width: 200px;
-}
-
 .contenedor-leer {
   border: 0.17rem solid rgba(39, 28, 20, 0.56);
   border-radius: 25px;
+}
+
+.contenedor-disponibilidad {
+  border: 0.17rem solid rgba(39, 28, 20, 0.56);
+  border-radius: 25px;
+  text-align: center;
+  width: 120px;
 }
 
 .contenedor-leer:hover {

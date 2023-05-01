@@ -5,6 +5,6 @@
 <style>
     footer {
         height: 200px;
-        background-color: aquamarine;
+        background-color: #f4f1ea !important;
     }
 </style>

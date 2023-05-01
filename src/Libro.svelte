@@ -28,5 +28,6 @@
     <div class="datos-libro">
         <h1><Link class="enlace" to="/libro/{libro.isbn}">{libro.titulo}</Link></h1>
         <Link class="enlace h4" to="/autor/{libro.autor.id}">{libro.autor.nombre} {libro.autor.apellidos}</Link>
+        <div class="contenedor-disponibilidad mt-2">{libro.estado}</div>
     </div>
 </section>

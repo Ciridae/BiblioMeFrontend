@@ -1,53 +1,75 @@
 <script>
-  export let isbn;
+    import { getContext } from "svelte";
+    import { onMount } from "svelte";
+    import { Link } from "svelte-routing";
+
+    export let isbn;
+
+    let libro = {
+        isbn: 0,
+        titulo: "El Nombre del Viento",
+        sinopsis: "",
+        numPaginas: 880,
+        img: "",
+        estado: "",
+        saga: "",
+        autor: {
+            id: 0,
+            nombre: "",
+            apellidos: "",
+            img: "",
+        },
+        genero: { id: 0, genero: "" },
+    };
+
+    const URL = getContext("URL");
+
+    let getLibro = async () => {
+        const response = await fetch(URL.libros + "/" + isbn);
+        libro = await response.json();
+        console.log(libro);
+    };
+
+    onMount(getLibro);
 </script>
 
-<h1>ISBN: {isbn}</h1>
-
-<div class="contenedor-libro">
-  <section class="imagen-libro">
-      <div class="contenedor-portada">
-          <img src="../images/portadas/amanecer_rojo.jpg" alt="Portada Amanecer Rojo" width="235">
-      </div>
-      <div class="contenedor-leer mt-1">
-          <div class="boton-leer">
-              <div class="texto-leer">Leer</div>
-          </div>
-      </div>
-  </section>
-  <section class="datos-libro">
-      <h2>Saga Amanecer Rojo #1</h2>
-      <h1 class="mt-1">Amanecer Rojo</h1>
-      <h3 class="mt-1"><a class="enlace" href="autor_pierce.html">Pierce Brown</a></h3>
-      <div class="mt-3">
-          <span class="estrellas">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-          </span>
-          <span class="media ml-2">4.26</span>
-      </div>
-      <div class="mt-3">
-          <p class="sinopsis">Ideas como libertad o igualdad murieron junto con la Tierra. Ahora, en Marte, el
-              equilibrio se sustenta en un férreo sistema de castas representadas por colores, en el que los
-              dorados son la
-              élite gobernante.
-          </p>
-          <p class="sinopsis my-2">Pero Darrow no es un dorado, es un rojo.</p>
-          <p class="sinopsis">Para sobrevivir debe ocultar su verdad
-              sin olvidar que cada muerte, cada paso en la batalla, es por la libertad.</p>
-      </div>
-      <div class="mt-3">
-          <div class="fl w-30"><b>Géneros</b></div>
-          <div class="fl w-70">
-              <span class="genero-libro desde-izquierda mr-1">Ciencia Ficción</span>
-              <span class="genero-libro desde-izquierda mr-1">Fantasía</span>
-              <span class="genero-libro desde-izquierda mr-1">Ficción</span>
-              <span class="genero-libro desde-izquierda mr-1">Aventura</span>
-              <span class="genero-libro desde-izquierda">Espacio</span>
-          </div>
-      </div>
-  </section>
+<div class="contenedor-libro pt-3">
+    <section class="imagen-libro">
+        <div class="contenedor-portada">
+            <img class="portada-pagina-libro"
+                src="../{libro.img}"
+                alt="Portada {libro.titulo}"
+                width="235"
+            />
+        </div>
+        <div class="contenedor-leer mt-1">
+            <div class="boton-leer">
+                <div class="texto-leer">Reservar</div>
+            </div>
+        </div>
+    </section>
+    <section class="datos-libro">
+        <h2>{libro.saga}</h2>
+        <h1 class="mt-1">{libro.titulo}</h1>
+        <h3 class="mt-1">
+            <Link class="enlace" to="/autor/{libro.autor.id}">{libro.autor.nombre} {libro.autor.apellidos}</Link>
+        </h3>
+        <div class="mt-3">
+            <p class="sinopsis">{libro.sinopsis}</p>
+        </div>
+        <div class="mt-3">
+            <div class="fl w-30"><b>Género</b></div>
+            <div class="fl w-70">
+                <span class="genero-libro desde-izquierda mr-1"
+                    >{libro.genero.genero}</span
+                >
+            </div>
+            <div class="fl w-30"><b>Nº Páginas</b></div>
+            <div class="fl w-70">
+                <span class="genero-libro desde-izquierda mr-1"
+                    >{libro.numPaginas}</span
+                >
+            </div>
+        </div>
+    </section>
 </div>

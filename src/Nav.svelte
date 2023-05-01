@@ -6,7 +6,7 @@
     class="navbar navbar-light navbar-expand-md bg-faded justify-content-center"
 >
     <Link class="navbar-brand d-flex w-50 mr-auto" to="/">
-        <img src="images/BiblioMeRecortadaSinFondo.png" height="30" alt="" />
+        <img src="/images/BiblioMeRecortadaSinFondo.png" height="30" alt="" />
     </Link>
     <button
         class="navbar-toggler"
@@ -29,7 +29,7 @@
             <li class="nav-item my-auto">
                 <Link class="nav-link" to="/"
                     ><img
-                        src="images/iconoLogin.png"
+                        src="/images/iconoLogin.png"
                         width="30"
                         height="30"
                         alt="Usuario"

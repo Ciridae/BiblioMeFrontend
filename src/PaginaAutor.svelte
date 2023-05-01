@@ -1,16 +1,19 @@
 <script>
     import { getContext } from "svelte";
-    import { data } from "./store";
     import { onMount } from "svelte";
 
     export let id;
 
     let autor = {
-            id: 0,
-            nombre: "",
-            apellidos: "",
-            img: "",
-        }
+        id: 0,
+        nombre: "",
+        apellidos: "",
+        img: "",
+        nacido: "",
+        web: "",
+        twitter: "",
+        autorDesde: ""
+    };
 
     const URL = getContext("URL");
 
@@ -23,29 +26,30 @@
     onMount(getAutor);
 </script>
 
-<h1>ID: {id}</h1>
-
-<div class="contenedor-autor">
+<div class="contenedor-autor pt-3">
     <section class="imagen-autor">
         <div class="contenedor-imagen-autor">
-            <img class="imagen-autor" src="../{autor.img}" alt="Pierce Brown" />
+            <img
+                class="imagen-autor"
+                src="../{autor.img}"
+                alt="{autor.nombre} {autor.apellidos}"
+                width="235"
+            />
         </div>
     </section>
     <section class="contenedor-datos-autor">
-        <h1 class="mb-1">Pierce Brown</h1>
+        <h1 class="mb-1">{autor.nombre} {autor.apellidos}</h1>
         <hr class="w-80" />
         <div class="datos-autor mt-1">
             <div class="fl w-30 my-01">Nacido</div>
-            <div class="fl w-70 my-01">
-                28 de enero de 1988, Denver, Colorado, Estados Unidos
-            </div>
+            <div class="fl w-70 my-01">{autor.nacido}</div>
             <div class="fl w-30 my-01">Página web</div>
             <div class="fl w-70 my-01">
                 <a
                     target="_blank"
                     class="enlace verde"
-                    href="https://www.piercebrown.com/"
-                    >https://www.piercebrown.com/</a
+                    href="{autor.web}"
+                    >{autor.web}</a
                 >
             </div>
             <div class="fl w-30 my-01">Twitter</div>
@@ -53,7 +57,7 @@
                 <a
                     target="_blank"
                     class="enlace verde"
-                    href="https://twitter.com/Pierce_Brown">Pierce_Brown</a
+                    href="{autor.twitter}">{autor.twitter.substring(20)}</a
                 >
             </div>
             <div class="fl w-30 my-01">Géneros</div>
@@ -67,7 +71,7 @@
                 <a class="enlace verde" href="#">J.K. Rowling</a>
             </div>
             <div class="fl w-30 my-01">Autor Desde</div>
-            <div class="fl w-70 my-01">Enero 2014</div>
+            <div class="fl w-70 my-01">{autor.autorDesde}</div>
         </div>
         <div class="sobre-autor w-80">
             <p>
