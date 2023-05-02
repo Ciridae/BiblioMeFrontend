@@ -27,7 +27,7 @@
         </ul>
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item my-auto">
-                <Link class="nav-link" to="/"
+                <Link class="nav-link" to="/inicio_sesion"
                     ><img
                         src="/images/iconoLogin.png"
                         width="30"
