@@ -11,22 +11,33 @@
             password: correoPorFormulario,
         };
         let opciones = {
-            method: "GET",
+            method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(usuarioFormulario),
         };
-        const response = await fetch(URL.usuarios + "/login", opciones);
-        if (response.ok) {
-            let usuarioDevuelto = await response.json();
-            console.log(usuarioDevuelto);
-            localStorage.setItem("user", usuarioDevuelto);
-        }
+        await fetch(URL.usuarios + "/login", opciones)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else if (response.status === 404) {
+                    return Promise.reject("Email o contraseña incorrecta");
+                } else {
+                    return Promise.reject("Otro error: " + response.status);
+                }
+            })
+            .then((data) => {
+                let usuarioDevuelto = data;
+                console.log(usuarioDevuelto);
+                localStorage.setItem("user", JSON.stringify(usuarioDevuelto));
+                window.location.href = ("/");
+            })
+            .catch((error) => console.log("error is", error));
     };
 
     async function handleFormSubmit(event) {
         event.preventDefault();
         const form = event.target;
-        const emailPorFormulario = form.correo.value;
+        const emailPorFormulario = form.email.value;
         const passwordPorFormulario = form.password.value;
         try {
             await login(emailPorFormulario, passwordPorFormulario);

@@ -63,13 +63,13 @@
             </div>
             <div class="fl w-30 my-01">Géneros</div>
             <div class="fl w-70 my-01">
-                <a class="enlace verde" href="#">Ciencia Ficción</a>,
-                <a class="enlace verde" href="#">Fantasía</a>
+                <a class="enlace verde" href={'#'}>Ciencia Ficción</a>,
+                <a class="enlace verde" href={'#'}>Fantasía</a>
             </div>
             <div class="fl w-30 my-01">Influencias</div>
             <div class="fl w-70 my-01">
-                <a class="enlace verde" href="#">George RR Martin</a>,
-                <a class="enlace verde" href="#">J.K. Rowling</a>
+                <a class="enlace verde" href={'#'}>George RR Martin</a>,
+                <a class="enlace verde" href={'#'}>J.K. Rowling</a>
             </div>
             <div class="fl w-30 my-01">Autor Desde</div>
             <div class="fl w-70 my-01">{autor.autorDesde}</div>
