@@ -5,7 +5,7 @@
     import Libros from "./Libros.svelte";
     import PaginaLibro from "./PaginaLibro.svelte";
     import PaginaAutor from "./PaginaAutor.svelte";
-    import FormularioLogin from "./FormularioLogin.svelte";
+    import Login from "./Login.svelte";
 </script>
 
 <main class="pb-5">
@@ -14,7 +14,7 @@
     <Route path="/autores" component="{Autores}"></Route>
     <Route path="/libro/:isbn" component="{PaginaLibro}"></Route>
     <Route path="/autor/:id" component="{PaginaAutor}"></Route>
-    <Route path="/inicio_sesion" component="{FormularioLogin}"></Route>
+    <Route path="/inicio_sesion" component="{Login}"></Route>
 </main>
 
 <style>

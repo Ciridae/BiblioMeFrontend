@@ -1,6 +1,6 @@
 <div class="container pt-5">
     <section>
-        <form class="mx-auto">
+        <form class="mx-auto" action="Login.svelte">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input
@@ -13,7 +13,7 @@
                 />
             </div>
             <div class="form-group">
-                <label for="email">Contraseña</label>
+                <label for="password">Contraseña</label>
                 <input
                     type="password"
                     class="form-control"
