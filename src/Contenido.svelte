@@ -6,6 +6,7 @@
     import PaginaLibro from "./PaginaLibro.svelte";
     import PaginaAutor from "./PaginaAutor.svelte";
     import Login from "./Login.svelte";
+    import Logout from "./Logout.svelte";
 </script>
 
 <main class="pb-5">
@@ -15,6 +16,7 @@
     <Route path="/libro/:isbn" component="{PaginaLibro}"></Route>
     <Route path="/autor/:id" component="{PaginaAutor}"></Route>
     <Route path="/inicio_sesion" component="{Login}"></Route>
+    <Route path="/cerrar_sesion" component="{Logout}"></Route>
 </main>
 
 <style>
