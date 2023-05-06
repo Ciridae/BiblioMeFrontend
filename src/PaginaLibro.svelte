@@ -18,8 +18,16 @@
             nombre: "",
             apellidos: "",
             img: "",
+            nacido: "",
+            web: "",
+            twitter: "",
+            autorDesde: "",
+            biografia: "",
         },
-        genero: { id: 0, genero: "" },
+        genero: {
+            id: 0,
+            genero: "",
+        },
     };
 
     const URL = getContext("URL");
@@ -39,16 +47,36 @@
                 body: JSON.stringify(libro),
             };
             fetch(URL.libros + "/" + libro.isbn, opciones)
-                .then((res) => console.log(res))
-                .catch((error) => console.log(error));
-        }
-    }
+                .then((res) => {
+                    console.log(res);
 
-    function libroDisponible() {
-        if (libro.estado === "Disponible") {
-            return true;
-        } else {
-            return false;
+                    let fechaHoraActual = new Date();
+                    // Obtener la fecha actual en formato de cadena (YYYY-MM-DD)
+                    let fechaActual = fechaHoraActual
+                        .toISOString()
+                        .substring(0, 10);
+                    // Obtener la hora actual en formato de cadena (HH:MM:SS)
+                    let horaActual = fechaHoraActual.toLocaleTimeString();
+                    let fechaHora = fechaActual + " " + horaActual;
+
+                    let reserva = {
+                        reservaPK: {
+                            isbn: libro.isbn,
+                            id: libro.autor.id,
+                            fechaReserva: fechaHora,
+                        },
+                    };
+                    console.log(reserva);
+                    let opcionesReserva = {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(reserva),
+                    };
+                    fetch(URL.reservas, opcionesReserva)
+                        .then((res) => console.log(res))
+                        .catch((error) => console.log(error));
+                })
+                .catch((error) => console.log(error));
         }
     }
 
@@ -66,9 +94,15 @@
             />
         </div>
         <div class="contenedor-leer mt-1">
-            <button on:click={reservar} class="boton-leer">
-                <div class="texto-leer">{libro.estado}</div>
-            </button>
+            {#if libro.estado == "Disponible"}
+                <button on:click={reservar} class="boton-leer">
+                    <div class="texto-leer">Reservar</div>
+                </button>
+            {:else}
+                <button class="boton-leer">
+                    <div class="texto-leer">{libro.estado}</div>
+                </button>
+            {/if}
         </div>
     </section>
     <section class="datos-libro">

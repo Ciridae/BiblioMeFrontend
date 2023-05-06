@@ -8,7 +8,8 @@
   const URL = {
     libros: "http://localhost:4343/libros",
     autores: "http://localhost:4343/autores",
-    usuarios: "http://localhost:4343/usuarios"
+    usuarios: "http://localhost:4343/usuarios",
+    reservas: "http://localhost:4343/reservas",
   };
   setContext("URL", URL);
 </script>

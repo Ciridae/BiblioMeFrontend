@@ -1,7 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { onMount } from "svelte";
-    import { usuario } from "./store";
 
     const URL = getContext("URL");
 
@@ -22,7 +20,7 @@
                 } else if (response.status === 404) {
                     return Promise.reject("Email o contraseña incorrecta");
                 } else {
-                    return Promise.reject("Otro error: " + response.status);
+                    return Promise.reject("ERROR: " + response.status);
                 }
             })
             .then((data) => {
@@ -31,11 +29,13 @@
                 localStorage.setItem("user", JSON.stringify(usuarioDevuelto));
                 window.location.href = ("/");
             })
-            .catch((error) => console.log("error is", error));
+            .catch((error) => {
+                document.getElementById("mensaje-error").innerHTML = error;
+                console.log(error);
+            });
     };
 
     async function handleFormSubmit(event) {
-        event.preventDefault();
         const form = event.target;
         const emailPorFormulario = form.email.value;
         const passwordPorFormulario = form.password.value;
@@ -49,7 +49,7 @@
 
 <div class="container pt-5">
     <section>
-        <form class="mx-auto" on:submit={handleFormSubmit}>
+        <form class="mx-auto" on:submit|preventDefault={handleFormSubmit}>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input
@@ -77,5 +77,12 @@
                 value="Iniciar sesión"
             />
         </form>
+        <span id="mensaje-error"></span>
     </section>
 </div>
+
+<style>
+    #mensaje-error {
+        color: red;
+    }
+</style>

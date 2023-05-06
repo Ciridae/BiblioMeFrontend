@@ -23,11 +23,11 @@
                 <li class="nav-item">
                     <Link class="nav-link text-brown" to="/libros">Libros</Link>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <Link class="nav-link text-brown" to="/autores"
                         >Autores</Link
                     >
-                </li>
+                </li> -->
             </ul>
             <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
                 <li class="nav-item dropdown my-auto">
