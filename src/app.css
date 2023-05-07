@@ -125,6 +125,15 @@ body::-webkit-scrollbar {
   font-weight: 100;
 }
 
+.contenedor-perfil {
+  width: 50%;
+  margin: auto;
+}
+
+.datos-perfil {
+  padding-left: 20px;
+}
+
 .contenedor-libro {
   display: grid;
   grid-template-columns: 1fr 3fr;
