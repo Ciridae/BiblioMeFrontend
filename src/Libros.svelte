@@ -9,7 +9,6 @@
     let getLibros = async () => {
         const response = await fetch(URL.libros);
         $data = await response.json();
-        console.log($data);
     };
 
     onMount(getLibros);

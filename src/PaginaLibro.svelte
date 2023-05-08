@@ -5,6 +5,19 @@
 
     export let isbn;
 
+    let usuario = {
+        id: 0,
+        nombre: "",
+        apellidos: "",
+        email: "",
+        password: "",
+        tipoUsuario: {
+            id: 0,
+            tipo: "",
+            permisos: 0,
+        },
+    };
+
     let libro = {
         isbn: 0,
         titulo: "",
@@ -31,6 +44,14 @@
     };
 
     const URL = getContext("URL");
+
+    const usuarioSesion = localStorage.getItem("user");
+
+    if (!usuarioSesion) {
+        window.location.href = "/";
+    }
+
+    usuario = JSON.parse(usuarioSesion);
 
     let getLibro = async () => {
         const response = await fetch(URL.libros + "/" + isbn);
@@ -62,7 +83,7 @@
                     let reserva = {
                         reservaPK: {
                             isbn: libro.isbn,
-                            id: libro.autor.id,
+                            id: usuario.id,
                             fechaReserva: fechaHora,
                         },
                     };
