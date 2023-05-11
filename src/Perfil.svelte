@@ -29,8 +29,18 @@
 
     usuario = JSON.parse(usuarioSesion);
 
+    console.log(usuario);
+
     let getReservas = async () => {
-        const response = await fetch(URL.reservas + "/" + usuario.id);
+        let opcionesReservas = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(usuario),
+        };
+        const response = await fetch(
+            URL.reservas + "/" + usuario.id,
+            opcionesReservas
+        );
         if (response.ok) {
             reservas = await response.json();
             hayDatos = true;
@@ -59,9 +69,9 @@
             <h3>Reservas:</h3>
             {#if hayDatos}
                 {#each reservas as reserva}
-                    <div>
-                        Libro: {reserva.reservaPK.isbn}, Fecha de reserva: {reserva
-                            .reservaPK.fechaReserva}
+                    <div class="pt-2">
+                        Libro: {reserva.reservaPK.libro.titulo}, Fecha de
+                        reserva: {reserva.reservaPK.fechaReserva}
                     </div>
                 {/each}
             {:else}

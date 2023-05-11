@@ -18,18 +18,35 @@
         web: "",
         twitter: "",
         autorDesde: "",
-        biografia: ""
+        biografia: "",
     };
+
+    let librosPorAutor = [];
 
     const URL = getContext("URL");
 
     let getAutor = async () => {
-        const response = await fetch(URL.autores + "/" + id);
+        let response = await fetch(URL.autores + "/" + id);
         autor = await response.json();
-        console.log(autor);
+
+        let opcionesLibrosPorAutor = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(autor),
+        };
+
+        response = await fetch(
+            URL.libros + "/por_autor/" + id,
+            opcionesLibrosPorAutor
+        );
+
+        librosPorAutor = await response.json();
     };
 
-    onMount(getAutor);
+    /* onMount(getAutor); */
+    onMount(() => {
+        getAutor();
+    });
 </script>
 
 <div class="contenedor-autor pt-3">
@@ -42,6 +59,12 @@
                 width="235"
             />
         </div>
+        <div class="pt-3">
+            <h3>Libros:</h3>
+            {#each librosPorAutor as libroPorAutor}
+                <div>{libroPorAutor.titulo}</div>
+            {/each}
+        </div>
     </section>
     <section class="contenedor-datos-autor">
         <h1 class="mb-1">{autor.nombre} {autor.apellidos}</h1>
@@ -51,30 +74,25 @@
             <div class="fl w-70 my-01">{autor.nacido}</div>
             <div class="fl w-30 my-01">Página web</div>
             <div class="fl w-70 my-01">
-                <a
-                    target="_blank"
-                    class="enlace verde"
-                    href="{autor.web}"
+                <a target="_blank" class="enlace verde" href={autor.web}
                     >{autor.web}</a
                 >
             </div>
             <div class="fl w-30 my-01">Twitter</div>
             <div class="fl w-70 my-01">
-                <a
-                    target="_blank"
-                    class="enlace verde"
-                    href="{autor.twitter}">{autor.twitter.substring(20)}</a
+                <a target="_blank" class="enlace verde" href={autor.twitter}
+                    >{autor.twitter.substring(20)}</a
                 >
             </div>
             <div class="fl w-30 my-01">Géneros</div>
             <div class="fl w-70 my-01">
-                <a class="enlace verde" href={'#'}>Ciencia Ficción</a>,
-                <a class="enlace verde" href={'#'}>Fantasía</a>
+                <a class="enlace verde" href={"#"}>Ciencia Ficción</a>,
+                <a class="enlace verde" href={"#"}>Fantasía</a>
             </div>
             <div class="fl w-30 my-01">Influencias</div>
             <div class="fl w-70 my-01">
-                <a class="enlace verde" href={'#'}>George RR Martin</a>,
-                <a class="enlace verde" href={'#'}>J.K. Rowling</a>
+                <a class="enlace verde" href={"#"}>George RR Martin</a>,
+                <a class="enlace verde" href={"#"}>J.K. Rowling</a>
             </div>
             <div class="fl w-30 my-01">Autor Desde</div>
             <div class="fl w-70 my-01">{autor.autorDesde}</div>

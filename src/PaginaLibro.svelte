@@ -61,7 +61,6 @@
     let getLibro = async () => {
         const response = await fetch(URL.libros + "/" + isbn);
         libro = await response.json();
-        console.log(libro);
     };
 
     function reservar() {
@@ -87,12 +86,11 @@
 
                     let reserva = {
                         reservaPK: {
-                            isbn: libro.isbn,
-                            id: usuario.id,
+                            libro: libro,
+                            usuario: usuario,
                             fechaReserva: fechaHora,
                         },
                     };
-                    console.log(reserva);
                     let opcionesReserva = {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
