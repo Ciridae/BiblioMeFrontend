@@ -1,8 +1,13 @@
 <script>
     import { getContext } from "svelte";
     import { onMount } from "svelte";
+    import { sesionIniciada } from "./ComprobarSesion.svelte";
 
     export let id;
+
+    if (!sesionIniciada()) {
+        window.location.href = "/";
+    }
 
     let autor = {
         id: 0,

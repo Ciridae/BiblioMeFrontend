@@ -1,6 +1,11 @@
 <script>
     import { getContext } from "svelte";
     import { onMount } from "svelte";
+    import { sesionIniciada } from "./ComprobarSesion.svelte";
+
+    if (!sesionIniciada()) {
+        window.location.href = "/";
+    }
 
     const URL = getContext("URL");
 
@@ -22,9 +27,7 @@
 
     const usuarioSesion = localStorage.getItem("user");
 
-    if (!usuarioSesion) {
-        window.location.href = "/";
-    }
+    usuario = JSON.parse(usuarioSesion);
 
     let getReservas = async () => {
         const response = await fetch(URL.reservas + "/" + usuario.id);
@@ -35,8 +38,6 @@
             hayDatos = false;
         }
     };
-
-    usuario = JSON.parse(usuarioSesion);
 
     onMount(getReservas);
 </script>
@@ -59,8 +60,8 @@
             {#if hayDatos}
                 {#each reservas as reserva}
                     <div>
-                        Libro: {reserva.reservaPK.isbn}, Fecha de reserva: {reserva.reservaPK
-                            .fechaReserva}
+                        Libro: {reserva.reservaPK.isbn}, Fecha de reserva: {reserva
+                            .reservaPK.fechaReserva}
                     </div>
                 {/each}
             {:else}

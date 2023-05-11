@@ -3,6 +3,11 @@
     import { data } from "./store";
     import { onMount } from "svelte";
     import Libro from "./Libro.svelte";
+    import { sesionIniciada } from "./ComprobarSesion.svelte";
+
+    if (!sesionIniciada()) {
+        window.location.href = "/";
+    }
 
     const URL = getContext("URL");
 

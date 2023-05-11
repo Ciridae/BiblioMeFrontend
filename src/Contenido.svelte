@@ -1,6 +1,5 @@
 <script>
     import { Route } from "svelte-routing";
-    import Autores from "./Autores.svelte";
     import Inicio from "./Inicio.svelte";
     import Libros from "./Libros.svelte";
     import PaginaLibro from "./PaginaLibro.svelte";
@@ -13,7 +12,6 @@
 <main class="pb-5">
     <Route path="/" component={Inicio} />
     <Route path="/libros" component={Libros} />
-    <Route path="/autores" component={Autores} />
     <Route path="/libro/:isbn" component={PaginaLibro} />
     <Route path="/autor/:id" component={PaginaAutor} />
     <Route path="/inicio_sesion" component={Login} />

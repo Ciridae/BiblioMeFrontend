@@ -2,8 +2,13 @@
     import { getContext } from "svelte";
     import { onMount } from "svelte";
     import { Link } from "svelte-routing";
+    import { sesionIniciada } from "./ComprobarSesion.svelte";
 
     export let isbn;
+
+    if (!sesionIniciada()) {
+        window.location.href = "/";
+    }
 
     let usuario = {
         id: 0,

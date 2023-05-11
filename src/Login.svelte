@@ -1,5 +1,10 @@
 <script>
     import { getContext } from "svelte";
+    import { sesionIniciada } from "./ComprobarSesion.svelte";
+
+    if (sesionIniciada()) {
+        window.location.href = "/";
+    }
 
     const URL = getContext("URL");
 
