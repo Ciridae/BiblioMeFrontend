@@ -1,7 +1,6 @@
 <script>
     import { getContext } from "svelte";
     import { sesionIniciada } from "./ComprobarSesion.svelte";
-    import { Link } from "svelte-routing";
 
     if (sesionIniciada()) {
         window.location.href = "/";
@@ -9,31 +8,27 @@
 
     const URL = getContext("URL");
 
-    let login = async (emailPorFormulario, correoPorFormulario) => {
-        let usuarioFormulario = {
-            email: emailPorFormulario,
-            password: correoPorFormulario,
-        };
+    let registro = async (usuarioFormulario) => {
         let opciones = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(usuarioFormulario),
         };
-        await fetch(URL.usuarios + "/login", opciones)
+        await fetch(URL.usuarios + "/registro", opciones)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
                 } else if (response.status === 404) {
-                    return Promise.reject("Email o contraseña incorrecta");
+                    return Promise.reject("Ya existe un usuario con ese correo");
                 } else {
                     return Promise.reject("ERROR: " + response.status);
                 }
             })
             .then((data) => {
-                let usuarioDevuelto = data;
-                console.log(usuarioDevuelto);
-                localStorage.setItem("user", JSON.stringify(usuarioDevuelto));
-                window.location.href = ("/");
+                console.log(data);
+                console.log(usuarioFormulario);
+                localStorage.setItem("user", JSON.stringify(usuarioFormulario));
+                window.location.href = "/";
             })
             .catch((error) => {
                 document.getElementById("mensaje-error").innerHTML = error;
@@ -43,10 +38,19 @@
 
     async function handleFormSubmit(event) {
         const form = event.target;
-        const emailPorFormulario = form.email.value;
-        const passwordPorFormulario = form.password.value;
+        let usuarioFormulario = {
+            email: form.email.value,
+            password: form.password.value,
+            nombre: form.nombre.value,
+            apellidos: form.apellidos.value,
+            tipoUsuario: {
+                id: 2,
+                tipo: "estándar",
+                permisos: 2,
+            },
+        };
         try {
-            await login(emailPorFormulario, passwordPorFormulario);
+            await registro(usuarioFormulario);
         } catch (error) {
             console.error(error);
         }
@@ -54,7 +58,7 @@
 </script>
 
 <div class="container pt-5">
-    <h1 class="text-center">Inicio de sesión</h1>
+    <h1 class="text-center">Registro</h1>
     <section>
         <form class="mx-auto" on:submit|preventDefault={handleFormSubmit}>
             <div class="form-group">
@@ -66,6 +70,26 @@
                     id="email"
                     required
                     placeholder="Ej.: prueba@gmail.com"
+                />
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="nombre"
+                    id="nombre"
+                    required
+                />
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="apellidos"
+                    id="apellidos"
+                    required
                 />
             </div>
             <div class="form-group">
@@ -81,16 +105,13 @@
             <input
                 type="submit"
                 class="btn btn-dark w-100 boton"
-                value="Iniciar sesión"
+                value="Registrarse"
             />
         </form>
-        <div class="pt-2 pr-3">
-            <Link class="enlace" to="/registro">Crear cuenta</Link>
-        </div>
-        <span class="d-block pt-3" id="mensaje-error"></span>
+        <span id="mensaje-error" />
     </section>
 </div>
- 
+
 <style>
     #mensaje-error {
         color: red;

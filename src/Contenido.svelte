@@ -7,6 +7,7 @@
     import Login from "./Login.svelte";
     import Logout from "./Logout.svelte";
     import Perfil from "./Perfil.svelte";
+    import Registro from "./Registro.svelte";
 </script>
 
 <main class="pb-5">
@@ -17,6 +18,7 @@
     <Route path="/inicio_sesion" component={Login} />
     <Route path="/cerrar_sesion" component={Logout} />
     <Route path="/perfil" component={Perfil} />
+    <Route path="/registro" component={Registro} />
 </main>
 
 <style>
