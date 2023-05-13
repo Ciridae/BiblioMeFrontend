@@ -17,7 +17,7 @@
         await fetch(URL.usuarios + "/registro", opciones)
             .then((response) => {
                 if (response.ok) {
-                    return response.json();
+                    return response;
                 } else if (response.status === 404) {
                     return Promise.reject("Ya existe un usuario con ese correo");
                 } else {
