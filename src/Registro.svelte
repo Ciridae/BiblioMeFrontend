@@ -27,8 +27,7 @@
             .then((data) => {
                 console.log(data);
                 console.log(usuarioFormulario);
-                localStorage.setItem("user", JSON.stringify(usuarioFormulario));
-                window.location.href = "/";
+                window.location.href = "/inicio_sesion";
             })
             .catch((error) => {
                 document.getElementById("mensaje-error").innerHTML = error;

@@ -29,8 +29,6 @@
 
     usuario = JSON.parse(usuarioSesion);
 
-    console.log(usuario);
-
     let getReservas = async () => {
         let opcionesReservas = {
             method: "POST",
@@ -70,8 +68,8 @@
             {#if hayDatos}
                 {#each reservas as reserva}
                     <div class="pt-2">
-                        Libro: {reserva.reservaPK.libro.titulo}, Fecha de
-                        reserva: {reserva.reservaPK.fechaReserva}
+                        Libro: <b>{reserva.reservaPK.libro.titulo}</b>, Fecha de
+                        reserva: <b>{reserva.reservaPK.fechaReserva}</b>
                     </div>
                 {/each}
             {:else}

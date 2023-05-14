@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { onMount } from "svelte";
     import { sesionIniciada } from "./ComprobarSesion.svelte";
+    import { Link } from "svelte-routing";
 
     export let id;
 
@@ -43,10 +44,7 @@
         librosPorAutor = await response.json();
     };
 
-    /* onMount(getAutor); */
-    onMount(() => {
-        getAutor();
-    });
+    onMount(getAutor);
 </script>
 
 <div class="contenedor-autor pt-3">
@@ -62,7 +60,7 @@
         <div class="pt-3">
             <h3>Libros:</h3>
             {#each librosPorAutor as libroPorAutor}
-                <div>{libroPorAutor.titulo}</div>
+                <Link class="enlace d-block" to="/libro/{libroPorAutor.isbn}">{libroPorAutor.titulo}</Link>
             {/each}
         </div>
     </section>
@@ -84,7 +82,7 @@
                     >{autor.twitter.substring(20)}</a
                 >
             </div>
-            <div class="fl w-30 my-01">Géneros</div>
+            <!-- <div class="fl w-30 my-01">Géneros</div>
             <div class="fl w-70 my-01">
                 <a class="enlace verde" href={"#"}>Ciencia Ficción</a>,
                 <a class="enlace verde" href={"#"}>Fantasía</a>
@@ -93,7 +91,7 @@
             <div class="fl w-70 my-01">
                 <a class="enlace verde" href={"#"}>George RR Martin</a>,
                 <a class="enlace verde" href={"#"}>J.K. Rowling</a>
-            </div>
+            </div> -->
             <div class="fl w-30 my-01">Autor Desde</div>
             <div class="fl w-70 my-01">{autor.autorDesde}</div>
         </div>

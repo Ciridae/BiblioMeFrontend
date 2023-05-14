@@ -23,7 +23,7 @@
 
 <section class="libro">
     <div>
-        <img class="portada" src="{libro.img}" alt="Amanecer rojo">
+        <img class="portada" src="{libro.img}" alt="{libro.titulo}">
     </div>
     <div class="datos-libro">
         <h1><Link class="enlace" to="/libro/{libro.isbn}">{libro.titulo}</Link></h1>
