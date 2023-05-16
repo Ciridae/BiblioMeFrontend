@@ -22,7 +22,7 @@
 </script>
 
 <section class="libro">
-    <div>
+    <div class="portada-movil">
         <img class="portada" src="{libro.img}" alt="{libro.titulo}">
     </div>
     <div class="datos-libro">

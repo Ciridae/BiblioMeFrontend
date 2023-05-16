@@ -68,32 +68,22 @@
         <h1 class="mb-1">{autor.nombre} {autor.apellidos}</h1>
         <hr class="w-80" />
         <div class="datos-autor mt-1">
-            <div class="fl w-30 my-01">Nacido</div>
-            <div class="fl w-70 my-01">{autor.nacido}</div>
-            <div class="fl w-30 my-01">Página web</div>
-            <div class="fl w-70 my-01">
+            <div class="my-01">Nacido</div>
+            <div class="my-01">{autor.nacido}</div>
+            <div class="my-01">Página web</div>
+            <div class="my-01">
                 <a target="_blank" class="enlace verde" href={autor.web}
                     >{autor.web}</a
                 >
             </div>
-            <div class="fl w-30 my-01">Twitter</div>
-            <div class="fl w-70 my-01">
+            <div class="my-01">Twitter</div>
+            <div class="my-01">
                 <a target="_blank" class="enlace verde" href={autor.twitter}
                     >{autor.twitter.substring(20)}</a
                 >
             </div>
-            <!-- <div class="fl w-30 my-01">Géneros</div>
-            <div class="fl w-70 my-01">
-                <a class="enlace verde" href={"#"}>Ciencia Ficción</a>,
-                <a class="enlace verde" href={"#"}>Fantasía</a>
-            </div>
-            <div class="fl w-30 my-01">Influencias</div>
-            <div class="fl w-70 my-01">
-                <a class="enlace verde" href={"#"}>George RR Martin</a>,
-                <a class="enlace verde" href={"#"}>J.K. Rowling</a>
-            </div> -->
-            <div class="fl w-30 my-01">Autor Desde</div>
-            <div class="fl w-70 my-01">{autor.autorDesde}</div>
+            <div class="my-01">Autor Desde</div>
+            <div class="my-01">{autor.autorDesde}</div>
         </div>
         <div class="sobre-autor w-80">
             {@html autor.biografia}

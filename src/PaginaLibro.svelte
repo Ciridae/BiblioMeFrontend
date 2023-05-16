@@ -147,7 +147,7 @@
                     >{libro.genero.genero}</span
                 >
             </div>
-            <div class="fl w-30"><b>Nº Páginas</b></div>
+            <div class="fl w-30"><b>Páginas</b></div>
             <div class="fl w-70">
                 <span class="genero-libro desde-izquierda mr-1"
                     >{libro.numPaginas}</span

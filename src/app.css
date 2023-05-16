@@ -14,10 +14,8 @@ body {
   background-color: #f9f7f4;
   font-family: 'Lora', Serif;
   -ms-overflow-style: none;
-  /* Para quitar la barra de scroll en Edge */
 }
 
-/* Para quitar la barra de scroll en Chrome */
 body::-webkit-scrollbar {
   display: none;
 }
@@ -43,6 +41,15 @@ body::-webkit-scrollbar {
     grid-template-columns: 1fr !important;
   }
 
+  .libro {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+
+  .portada-movil {
+    margin: auto
+  }
+
   .datos-libro {
     margin-top: 25px;
   }
@@ -53,6 +60,11 @@ body::-webkit-scrollbar {
 
   .contenedor-datos-autor {
     margin-top: 25px;
+  }
+
+  .datos-autor {
+    max-width: 340px;
+    grid-template-columns: 100px 2fr !important;
   }
 
   .contenedor-explorar video {
@@ -125,6 +137,11 @@ body::-webkit-scrollbar {
   font-weight: 100;
 }
 
+.datos-autor {
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+}
+
 .contenedor-perfil {
   width: 50%;
   margin: auto;
@@ -158,16 +175,6 @@ body::-webkit-scrollbar {
 .contenedor-libro h3 {
   font-weight: 100;
 }
-
-/* .contenedor-leer {
-  border: 0.17rem solid rgba(39, 28, 20, 0.56);
-  border-radius: 25px;
-} */
-
-/* .contenedor-leer:hover {
-  background-color: #f0f0f0;
-  cursor: pointer;
-} */
 
 .boton-leer {
   border: 0.17rem solid rgba(39, 28, 20, 0.56);
@@ -205,7 +212,6 @@ body::-webkit-scrollbar {
 
 .contenedor-imagen-autor {
   display: flex;
-  justify-content: center;
 }
 
 .contenedor-disponibilidad {
