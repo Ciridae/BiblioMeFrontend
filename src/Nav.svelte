@@ -20,20 +20,16 @@
     <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
         {#if sesionIniciada()}
             <ul class="navbar-nav w-100 justify-content-center">
-                <li class="nav-item">
-                    <Link class="nav-link text-brown" to="/libros">Libros</Link>
+                <li class="nav-item text-center">
+                    <Link class="nav-link text-brown enlace-navegador" to="/libros">Libros</Link>
                 </li>
-                <!-- <li class="nav-item">
-                    <Link class="nav-link text-brown" to="/autores"
-                        >Autores</Link
-                    >
-                </li> -->
             </ul>
             <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
                 <li class="nav-item dropdown my-auto">
                     <button
-                        class="nav-link dropdown-toggle boton-dropdown"
+                        class="nav-link dropdown-toggle boton-dropdown mx-auto"
                         type="button"
+                        title="boton"
                         id="dropdownMenuButton"
                         data-toggle="dropdown"
                         aria-haspopup="true"
