@@ -3,7 +3,7 @@
     import { data } from "./store";
     import { onMount } from "svelte";
     import Libro from "./Libro.svelte";
-    import { sesionIniciada } from "./ComprobarSesion.svelte";
+    import { sesionIniciada } from "./ComprobarSesion.js";
 
     if (!sesionIniciada()) {
         window.location.href = "/";

@@ -1,6 +1,6 @@
 <script>
     import { Link } from "svelte-routing";
-    import { sesionIniciada } from "./ComprobarSesion.svelte";
+    import { sesionIniciada } from "./ComprobarSesion.js";
 </script>
 
 <nav

@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { sesionIniciada } from "./ComprobarSesion.svelte";
+    import { sesionIniciada } from "./ComprobarSesion.js";
 
     if (sesionIniciada()) {
         window.location.href = "/";

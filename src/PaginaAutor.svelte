@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { onMount } from "svelte";
-    import { sesionIniciada } from "./ComprobarSesion.svelte";
+    import { sesionIniciada } from "./ComprobarSesion.js";
     import { Link } from "svelte-routing";
 
     export let id;
