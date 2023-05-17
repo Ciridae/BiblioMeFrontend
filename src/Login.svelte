@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { sesionIniciada } from "./ComprobarSesion.js";
+    import { sesionIniciada } from "./ComprobarSesion.svelte";
     import { Link } from "svelte-routing";
 
     if (sesionIniciada()) {

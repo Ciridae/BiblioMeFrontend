@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { onMount } from "svelte";
     import { Link } from "svelte-routing";
-    import { sesionIniciada } from "./ComprobarSesion.js";
+    import { sesionIniciada } from "./ComprobarSesion.svelte";
 
     export let isbn;
 
