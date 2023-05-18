@@ -24,9 +24,7 @@
                     return Promise.reject("ERROR: " + response.status);
                 }
             })
-            .then((data) => {
-                console.log(data);
-                console.log(usuarioFormulario);
+            .then(() => {
                 window.location.href = "/inicio_sesion";
             })
             .catch((error) => {

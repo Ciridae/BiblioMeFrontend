@@ -31,7 +31,6 @@
             })
             .then((data) => {
                 let usuarioDevuelto = data;
-                console.log(usuarioDevuelto);
                 localStorage.setItem("user", JSON.stringify(usuarioDevuelto));
                 window.location.href = ("/");
             })

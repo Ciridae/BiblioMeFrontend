@@ -73,7 +73,6 @@
             };
             fetch(URL.libros + "/" + libro.isbn, opciones)
                 .then((res) => {
-                    console.log(res);
 
                     let fechaHoraActual = new Date();
                     // Obtener la fecha actual en formato de cadena (YYYY-MM-DD)
