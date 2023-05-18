@@ -22,9 +22,9 @@
 
     onMount(getLibros);
 
-    $: datosFiltrados = $data.filter((libro) => {
+    $: datosFiltrados = $data.filter((libro) =>
         RegExp(patron, "i").test(libro.titulo)
-    })
+    );
 </script>
 
 <Buscar bind:busqueda={patron} />

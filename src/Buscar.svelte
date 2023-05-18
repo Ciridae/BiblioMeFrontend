@@ -3,8 +3,13 @@
 </script>
 
 <div class="container">
-    <div class="w-25 pt-2">
-        <label for="buscar">Buscar:</label>
-        <input id="buscar" class="form-control" type="search" bind:value={busqueda}>
+    <div class="pt-2">
+        <input id="buscar" class="form-control" type="search" bind:value={busqueda} placeholder="Buscar libro">
     </div>
 </div>
+
+<style>
+    #buscar {
+        width: 300px
+    }
+</style>
