@@ -19,7 +19,9 @@
                 if (response.ok) {
                     return response;
                 } else if (response.status === 404) {
-                    return Promise.reject("Ya existe un usuario con ese correo");
+                    return Promise.reject(
+                        "Ya existe un usuario con ese correo"
+                    );
                 } else {
                     return Promise.reject("ERROR: " + response.status);
                 }
@@ -32,6 +34,12 @@
                 console.log(error);
             });
     };
+
+    function validarCampo(campo) {
+        if (!campo.trim()) {
+            throw new Error(`Los campos no pueden estar vacíos.`);
+        }
+    }
 
     async function handleFormSubmit(event) {
         const form = event.target;
@@ -47,8 +55,14 @@
             },
         };
         try {
+            for (let index = 0; index < form.elements.length; index++) {
+                const campo = form.elements[index];
+                validarCampo(campo.value);
+            }
+
             await registro(usuarioFormulario);
         } catch (error) {
+            document.getElementById("mensaje-error").innerHTML = error;
             console.error(error);
         }
     }
@@ -61,7 +75,7 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input
-                    type="text"
+                    type="email"
                     class="form-control"
                     name="email"
                     id="email"
@@ -105,7 +119,7 @@
                 value="Registrarse"
             />
         </form>
-        <span id="mensaje-error" />
+        <span class="d-block pt-3" id="mensaje-error" />
     </section>
 </div>
 

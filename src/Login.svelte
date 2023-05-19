@@ -32,7 +32,7 @@
             .then((data) => {
                 let usuarioDevuelto = data;
                 localStorage.setItem("user", JSON.stringify(usuarioDevuelto));
-                window.location.href = ("/");
+                window.location.href = "/";
             })
             .catch((error) => {
                 document.getElementById("mensaje-error").innerHTML = error;
@@ -40,14 +40,21 @@
             });
     };
 
+    function validarPassword(password) {
+        if (!password.trim()) {
+            throw new Error(`El campo password no puede estar vacío.`);
+        }
+    }
+
     async function handleFormSubmit(event) {
         const form = event.target;
         const emailPorFormulario = form.email.value;
         const passwordPorFormulario = form.password.value;
         try {
+            validarPassword(passwordPorFormulario);
             await login(emailPorFormulario, passwordPorFormulario);
         } catch (error) {
-            console.error(error);
+            document.getElementById("mensaje-error").innerHTML = error;
         }
     }
 </script>
@@ -59,7 +66,7 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input
-                    type="text"
+                    type="email"
                     class="form-control"
                     name="email"
                     id="email"
@@ -86,10 +93,10 @@
         <div class="pt-2 pr-3">
             <Link class="enlace" to="/registro">Crear cuenta</Link>
         </div>
-        <span class="d-block pt-3" id="mensaje-error"></span>
+        <span class="d-block pt-3" id="mensaje-error" />
     </section>
 </div>
- 
+
 <style>
     #mensaje-error {
         color: red;
