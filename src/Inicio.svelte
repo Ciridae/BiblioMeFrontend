@@ -24,8 +24,8 @@
                 </li>
                 <li class="text-left pt-3">
                     <b>Recogida sin complicaciones:</b> una vez que hayas reservado
-                    tus libros, solo tienes que venir a la biblioteca en la fecha
-                    de recogida seleccionada y recogerlos. ¡No hay esperas ni complicaciones!
+                    tus libros, solo tienes que venir a la biblioteca y recogerlos.
+                    ¡No hay esperas ni complicaciones!
                 </li>
             </ul>
         </div>
