@@ -106,7 +106,7 @@
     onMount(getLibro);
 </script>
 
-<div class="contenedor-libro pt-3">
+<div class="contenedor-libro pt-4">
     <section class="imagen-libro">
         <div class="contenedor-portada">
             <img
