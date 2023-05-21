@@ -7,17 +7,17 @@
     class="navbar navbar-light navbar-expand-md bg-faded justify-content-center"
 >
     <Link class="navbar-brand d-flex w-50 mr-auto" to="/">
-        <img src="/images/BiblioMeRecortadaSinFondo.png" height="30" alt="" />
+        <img src="/images/BiblioMeRecortadaSinFondo.png" height="30" alt="Logo Bibliome" />
     </Link>
     <button
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target="#collapsingNavbar3"
+        data-target="#collapsingNavbar"
     >
         <span class="navbar-toggler-icon" />
     </button>
-    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar">
         {#if sesionIniciada()}
             <ul class="navbar-nav w-100 justify-content-center">
                 <li class="nav-item text-center">
