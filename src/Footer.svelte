@@ -1,14 +1,19 @@
-<footer class="row">
-    <div class="col-sm-6 pr-5 d-flex align-items-center justify-content-end">
-        <div class="d-flex align-items-center">
+<footer class="row mr-0">
+    <div class="col-md-6 elemento-footer primer-elemento">
+        <div>
             &copy; {new Date().getFullYear()} BiblioMe. Todos los derechos reservados
         </div>
     </div>
-    <div class="col-sm-6 pl-5">
-        <div class="d-flex align-items-center justify-content-start">
-            <span>Backend</span>
-            <span></span>
-            <span>Frontend</span>
+    <div class="col-md-6 elemento-footer segundo-elemento">
+        <div>
+            <i class="fab fa-github" />
+            <a class="enlace" href="https://github.com/Ciridae/BiblioMe"
+                >Backend</a
+            >
+            -
+            <a class="enlace" href="https://github.com/Ciridae/BiblioMeFrontend"
+                >Frontend</a
+            >
         </div>
     </div>
 </footer>
@@ -20,19 +25,24 @@
         align-items: center;
     }
 
-    footer div {
-        height: 100%;
+    .elemento-footer {
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    @media (max-width: 425px) {
-        footer div {
-            height: 50%;
-            padding-right: 0px !important;
-            padding-left: 0px !important;
+    @media (min-width: 768px) {
+        .elemento-footer {
+            height: 100%;
         }
 
-        footer>div>div {
-            justify-content: center !important;
+        .primer-elemento {
+            justify-content: end;
+        }
+
+        .segundo-elemento {
+            justify-content: start;
         }
     }
 </style>
