@@ -1,5 +1,5 @@
 <div class="container text-center">
-    <h1 class="display-3 pt-5">Bienvenido a BiblioMe</h1>
+    <h1 class="display-3 pt-5 inicio-titulo">Bienvenido a BiblioMe</h1>
 
     <p class="mt-5 h4">
         La aplicación que ofrece a sus usuarios la posibilidad de reservar
@@ -49,5 +49,11 @@
 
     li b {
         font-size: large;
+    }
+
+    @media (max-width: 425px) {
+        .inicio-titulo {
+            font-size: 2.7em;
+        }
     }
 </style>
