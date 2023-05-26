@@ -7,11 +7,11 @@
     <div class="col-md-6 elemento-footer segundo-elemento">
         <div>
             <i class="fab fa-github" />
-            <a class="enlace" href="https://github.com/Ciridae/BiblioMe"
+            <a class="enlace" href="https://github.com/Ciridae/BiblioMe" target="_blank"
                 >Backend</a
             >
             -
-            <a class="enlace" href="https://github.com/Ciridae/BiblioMeFrontend"
+            <a class="enlace" href="https://github.com/Ciridae/BiblioMeFrontend" target="_blank"
                 >Frontend</a
             >
         </div>
