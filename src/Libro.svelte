@@ -23,11 +23,17 @@
 
 <section class="libro">
     <div class="portada-movil">
-        <img class="portada" src="{libro.img}" alt="{libro.titulo}">
+        <Link to="/libro/{libro.isbn}">
+            <img class="portada" src={libro.img} alt={libro.titulo} />
+        </Link>
     </div>
     <div class="datos-libro">
-        <h1><Link class="enlace" to="/libro/{libro.isbn}">{libro.titulo}</Link></h1>
-        <Link class="enlace h4" to="/autor/{libro.autor.id}">{libro.autor.nombre} {libro.autor.apellidos}</Link>
+        <h1>
+            <Link class="enlace" to="/libro/{libro.isbn}">{libro.titulo}</Link>
+        </h1>
+        <Link class="enlace h4" to="/autor/{libro.autor.id}"
+            >{libro.autor.nombre} {libro.autor.apellidos}</Link
+        >
         <div class="contenedor-disponibilidad mt-2">{libro.estado}</div>
     </div>
 </section>
